@@ -6,7 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "cypress": "npx cypress run",
-    "cypress-open": "npx cypress open"
+    "cypress-open": "npx cypress open", 
+    "cypress-chrome": "npx cypress run --browser chrome --headed",
+    "cypress-edge": "npx cypress run --browser edge --headed",
+    "cypress-firefox": "npx cypress run --browser firefox --headed"
   },
   "author": "Reander Agulto",
   "license": "ISC",

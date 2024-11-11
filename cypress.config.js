@@ -4,11 +4,15 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 module.exports = defineConfig({
+  projectId: 'loft-cypress',
   e2e: {
+    video: true,
+    videoCompression: 32,
+    videoCompression: true,
+    videosFolder: 'cypress/videos',
     testIsolation: false,
     viewportWidth: 1920,
     viewportHeight: 1080,
-    video: false,
     screenshotOnRunFailure: false,
     setupNodeEvents(on, config) {
       // implement node event listeners here
@@ -26,5 +30,5 @@ module.exports = defineConfig({
     staging: process.env.STAGING_LINK,
     dev: process.env.DEV_LINK
   },
-  defaultCommandTimeout: 10000
+  defaultCommandTimeout: 10000,
 });
