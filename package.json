@@ -9,7 +9,9 @@
     "cypress-open": "npx cypress open", 
     "cypress-chrome": "npx cypress run --browser chrome --headed",
     "cypress-edge": "npx cypress run --browser edge --headed",
-    "cypress-firefox": "npx cypress run --browser firefox --headed"
+    "cypress-firefox": "npx cypress run --browser firefox --headed",
+    "all-banner-form": "npx cypress run --browser firefox --headed --spec 'cypress/e2e/banner-forms/all-pages.cy.js'",
+    "single-banner-form": "npx cypress run --browser firefox --headed --spec 'cypress/e2e/banner-forms/single-page.cy.js'"
   },
   "author": "Reander Agulto",
   "license": "ISC",

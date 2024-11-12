@@ -8,7 +8,15 @@
     "industry": "IT",
     "estimated_move_in_date": "05/11/2024",
     "no_of_persons": "1",
+    "number_of_owners": 1,
+    "nationality_of_owners": "Filipino",
+    "product_or_service": "Web Development",
+    "describe_your_products_or_services": "Web Development",
+    "other_questions_or_concerns": "This is an automated dev testing, please disregard. Thanks!",
     "message": "This is an automated dev testing, please disregard. Thanks!",
     "exclusives_name": "Automated Dev Testing",
-    "exclusives_email": "imdev@august99.com"
+    "exclusives_email": "imdev@august99.com",
+    "proposed_business_name": "IT",
+    "proposed_business_address": "Ortigas",
+    "nature_of_business": "IT"
 }
