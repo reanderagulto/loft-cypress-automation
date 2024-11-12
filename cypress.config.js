@@ -28,7 +28,8 @@ module.exports = defineConfig({
       password: process.env.WP_ADMIN_PASSWORD,
     }, 
     staging: process.env.STAGING_LINK,
-    dev: process.env.DEV_LINK
+    dev: process.env.DEV_LINK,
+    live: process.env.LIVE_LINK
   },
   defaultCommandTimeout: 10000,
 });

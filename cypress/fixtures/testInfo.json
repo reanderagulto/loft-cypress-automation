@@ -1,0 +1,14 @@
+{
+    "first_name": "Automated Dev",
+    "last_name": "Testing",
+    "email": "imdev@august99.com",
+    "password": "password123456",
+    "phone": "09121231234",
+    "company": "August 99",
+    "industry": "IT",
+    "estimated_move_in_date": "05/11/2024",
+    "no_of_persons": "1",
+    "message": "This is an automated dev testing, please disregard. Thanks!",
+    "exclusives_name": "Automated Dev Testing",
+    "exclusives_email": "imdev@august99.com"
+}
