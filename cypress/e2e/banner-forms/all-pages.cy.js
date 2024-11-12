@@ -10,11 +10,31 @@ describe('Loft Banner Form Testing', () => {
     const environment = Cypress.env('staging'); // Change this to dev, staging or live.
     const excludedLinks = [
         `${environment}/feedback/`,
+        `${environment}/sitemap/`,
+        `${environment}/thank-you/`,
+        `${environment}/thankyou-subscribe/`,
+        `${environment}/thank-you-newsletter/`
     ];
-    let testInfo ;
+    let testInfo;
+    let links = [];
     before(() => {
         cy.fixture('testInfo').then((data) => {
             testInfo = data;
+        });
+    });
+
+    before(() => {
+        const sitemapLink = `${environment}/sitemap`;
+        cy.request({
+            method: "GET",
+            url: sitemapLink, 
+            auth: basicAuth
+        }).its('body').then((html) => {
+            const $ = Cypress.$;
+            $(html).find('.sitemap-list a').each((index, element) => {
+                links.push($(element).attr('href')); 
+            });
+            links = links.filter(url => url && !excludedLinks.includes(url));
         });
     });
 
@@ -58,23 +78,25 @@ describe('Loft Banner Form Testing', () => {
 
     // Visit All the Pages and Test Banner Forms
     it(`Loft Banner Forms Testing: ${environment}`, () => {
-        cy.visit(`${environment}/spaces/virtual-office/`, {
-            auth: basicAuth
-        });
-        cy.get('form.site-form').then((forms) => {
-            cy.get(forms).each((form) => {
-                if (!form.parents('.site-global-inquire-popup').length && !form.parents('.site-newsletter').length && !form.parents('.site-book').length) {
-                    cy.wrap(form).within(() => {
-                        if(form.find('input[type="text"], input[type="checkbox"], input[type="tel"], input[type="email"], select, textarea').length > 0) {
-                            cy.get(form.find('input[type="text"], input[type="checkbox"], input[type="tel"], input[type="email"], select, textarea')).each(($input) => {
-                                getTestInfo($input);
-                            })
-                        }
-                        if(form.find('input[type="submit"]').length > 0) {
-                            cy.get('input[type="submit"]').click({force: true});
-                        }
-                    });
-                }
+        links.forEach((link) => {
+            cy.visit(`${link}`, {
+                auth: basicAuth
+            });
+            cy.get('form.site-form').then((forms) => {
+                cy.get(forms).each((form) => {
+                    if (!form.parents('.site-global-inquire-popup').length && !form.parents('.site-newsletter').length && !form.parents('.site-book').length) {
+                        cy.wrap(form).within(() => {
+                            if(form.find('input[type="text"], input[type="checkbox"], input[type="tel"], input[type="email"], select, textarea').length > 0) {
+                                cy.get(form.find('input[type="text"], input[type="checkbox"], input[type="tel"], input[type="email"], select, textarea')).each(($input) => {
+                                    getTestInfo($input);
+                                })
+                            }
+                            if(form.find('input[type="submit"]').length > 0) {
+                                cy.get('input[type="submit"]').click({force: true});
+                            }
+                        });
+                    }
+                });
             });
         });
     });
