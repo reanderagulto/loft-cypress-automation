@@ -20,7 +20,7 @@ describe('Loft Banner Form Testing', () => {
     it(`Loft Banner Forms Testing: ${siteLink.url}`, () => {
         links.forEach((link) => {
             cy.visit(`${link}`, {
-                auth: basicAuth
+                auth: siteLink.auth
             });
             cy.get('form.site-form').then((forms) => {
                 cy.get(forms).each((form) => {
