@@ -1,4 +1,4 @@
-import { siteLink, basicAuth } from "./global-helper";
+import { siteLink } from "./global-helper";
 
 const excludedLinks = [
     `${siteLink.url}/feedback/`,
@@ -24,4 +24,4 @@ before(() => {
     });
 });
 
-export default links;
+export { links };
