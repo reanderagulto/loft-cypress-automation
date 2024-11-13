@@ -3,10 +3,17 @@ export const basicAuth = Cypress.env('basicAuth');
 const environment = Cypress.env('environment'); 
 let testInfo;
 let siteLink;
+let specificLinks;
 
 before(() => {
     cy.fixture('testInfo').then((data) => {
         testInfo = data;
+    });
+});
+
+before(() => {
+    cy.fixture('links').then((data) => {
+        specificLinks = data.links;
     });
 });
 
@@ -38,4 +45,4 @@ switch(environment) {
 }
 
 export const pageLink = `${siteLink.url}${Cypress.env('singlePage')}`; 
-export { siteLink, testInfo };
+export { siteLink, testInfo, specificLinks };
