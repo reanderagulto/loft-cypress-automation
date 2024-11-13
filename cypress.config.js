@@ -29,7 +29,9 @@ module.exports = defineConfig({
     }, 
     staging: process.env.STAGING_LINK,
     dev: process.env.DEV_LINK,
-    live: process.env.LIVE_LINK
+    live: process.env.LIVE_LINK,
+    environment: process.env.ENVIRONMENT,
+    singlePage: process.env.SINGLE_PAGE
   },
   defaultCommandTimeout: 10000,
 });
