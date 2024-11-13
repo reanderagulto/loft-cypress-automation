@@ -18,5 +18,7 @@
     "exclusives_email": "imdev@august99.com",
     "proposed_business_name": "IT",
     "proposed_business_address": "Ortigas",
-    "nature_of_business": "IT"
+    "nature_of_business": "IT",
+    "enter_your_name": "Automated Dev Testing",
+    "enter_your_email": "imdev@august99.com"
 }
